@@ -9,15 +9,39 @@
 
 [Github repo here](https://github.com/plandek-utils/ts-time-utils)
 
-small utils for managing Time, supported by Dayjs. It is intended to be used in tests.
+small utils for managing Time, supported by `Dayjs`. It is intended to be used in tests.
 
 ## Installation
 
 `yarn add @plandek-utils/time-utils` or `npm install @plandek-utils/time-utils`.
 
+## Dependencies
+
+it requires [`timekeeper`](https://www.npmjs.com/package/timekeeper) and [`Dayjs`](https://www.npmjs.com/package/dayjs)
+
 ## Usage
 
-TBD.
+we get 2 functions:
+
+- `freezeTime(time, fn)`: freezes time to the given one, executes the given function, and resets the time before returning the result of that execution.
+- `freezeTimeAwait(time, asyncFn)`: same as `freezeTime()` but expects an async function, and it waits for its return before resetting the time
+
+```typescript
+// assume now is "2019-03-21T12:21:13.000Z"
+
+function renderTime() {
+  const d = new Date()
+  console.log(d.toISOString())
+}
+
+renderTime() // => logs "2019-03-21T12:21:13.000Z"
+
+const time = new Date("2018-01-02T13:14:15.123Z")
+const res = freezeTime(time, () => { renderTime(); return 'blah' }) // => logs "2018-01-02T13:14:15.123Z"
+console.log(res) // => logs 'blah' (freezeTime() returns the result of the passed function)
+
+renderTime() // => logs "2019-03-21T12:21:13.010Z" (time is unfrozen, let's say that a 10ms have passed)
+```
 
 ## Development, Commits, versioning and publishing
 
