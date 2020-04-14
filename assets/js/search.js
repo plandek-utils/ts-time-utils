@@ -1,3 +1,0 @@
-var typedoc = typedoc || {};
-            typedoc.search = typedoc.search || {};
-            typedoc.search.data = {"kinds":{"64":"Function"},"rows":[{"id":0,"kind":64,"name":"getDate","url":"globals.html#getdate","classes":"tsd-kind-function tsd-is-not-exported"},{"id":1,"kind":64,"name":"freezeTime","url":"globals.html#freezetime","classes":"tsd-kind-function tsd-has-type-parameter"},{"id":2,"kind":64,"name":"freezeTimeAwait","url":"globals.html#freezetimeawait","classes":"tsd-kind-function tsd-has-type-parameter"}]};
