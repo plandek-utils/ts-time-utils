@@ -14,7 +14,7 @@ const now = dayjsNow().subtract(1, "week");
 
 [
   { time: now, title: "works with Dayjs" },
-  { time: now.toDate(), title: "works with Date" }
+  { time: now.toDate(), title: "works with Date" },
 ].forEach(({ time, title }) => {
   describe(title, () => {
     describe("freezeTime()", () => {

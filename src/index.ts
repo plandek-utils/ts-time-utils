@@ -47,10 +47,7 @@ export function freezeTime<T>(time: Dayjs | Date, fn: () => T): T {
  * @param fn async function to execute, on which the time will be frozen as `time`
  * @see freezeTime
  */
-export async function freezeTimeAwait<T>(
-  time: Dayjs | Date,
-  fn: () => Promise<T>
-): Promise<T> {
+export async function freezeTimeAwait<T>(time: Dayjs | Date, fn: () => Promise<T>): Promise<T> {
   timekeeper.freeze(getDate(time));
   const result = await fn();
   timekeeper.reset();
