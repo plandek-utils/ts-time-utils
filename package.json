@@ -1,6 +1,6 @@
 {
   "name": "@plandek-utils/time-utils",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "author": "Eduardo Turiño <eturino@plandek.com>",
   "description": "small utils for managing Time, supported by Dayjs. It is intended to be used in tests.",
   "main": "build/main/index.js",

@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/plandek-utils/ts-time-utils/compare/v1.1.1...v2.0.0) (2020-04-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* In v1.x dayjs objects were supported. This ended up being problematic because of
+issues with dayjs versions. It also added a dependency that is not strictly needed. That's why from
+v2.x on dayjs is no longer supported and it is removed as a dependency
+
+### Features
+
+* drop dayjs support + ensure unfreeze time if errors ([807e4b5](https://github.com/plandek-utils/ts-time-utils/commit/807e4b515580c8f2cd9e6799b4eff5bc32413500))
+
 ### [1.1.1](https://github.com/plandek-utils/ts-time-utils/compare/v1.1.0...v1.1.1) (2020-04-14)
 
 
