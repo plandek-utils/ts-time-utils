@@ -74,7 +74,7 @@
 				<a href="https://codeclimate.com/github/plandek-utils/ts-time-utils/test_coverage"><img src="https://api.codeclimate.com/v1/badges/6e14835096c932a7887c/test_coverage" alt="Test Coverage"></a></p>
 				<p><a href="https://plandek-utils.github.io/ts-time-utils">TypeDoc generated docs in here</a></p>
 				<p><a href="https://github.com/plandek-utils/ts-time-utils">Github repo here</a></p>
-				<p>small utils for managing Time, supported by <code>Dayjs</code>. It is intended to be used in tests.</p>
+				<p>small utils for managing Time. It is intended to be used in tests.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
@@ -82,7 +82,11 @@
 				<a href="#dependencies" id="dependencies" style="color: inherit; text-decoration: none;">
 					<h2>Dependencies</h2>
 				</a>
-				<p>it requires <a href="https://www.npmjs.com/package/timekeeper"><code>timekeeper</code></a> and <a href="https://www.npmjs.com/package/dayjs"><code>Dayjs</code></a></p>
+				<p>it requires <a href="https://www.npmjs.com/package/timekeeper"><code>timekeeper</code></a></p>
+				<a href="#v2-drops-dayjs-support" id="v2-drops-dayjs-support" style="color: inherit; text-decoration: none;">
+					<h3>V2 Drops dayjs support</h3>
+				</a>
+				<p>In v1.x dayjs objects were supported. This ended up being problematic because of issues with dayjs versions. It also added a dependency that is not strictly needed. That&#39;s why from v2.x on dayjs is no longer supported and it is removed as a dependency.</p>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
@@ -186,9 +190,6 @@ yarn publish --access public</code></pre>
 					</li>
 					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#freezetimeawait" class="tsd-kind-icon">freeze<wbr>Time<wbr>Await</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#getdate" class="tsd-kind-icon">get<wbr>Date</a>
 					</li>
 				</ul>
 			</nav>
