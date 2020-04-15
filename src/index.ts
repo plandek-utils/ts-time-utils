@@ -1,12 +1,4 @@
-import { Dayjs, isDayjs } from "dayjs";
 import timekeeper from "timekeeper";
-
-/**
- * @internal
- */
-function getDate(time: Dayjs | Date) {
-  return isDayjs(time) ? time.toDate() : time;
-}
 
 /**
  * Executes the given function, freezing the time first to the given `time`, and resetting the function execution (uses `timekeeper`)
@@ -31,11 +23,17 @@ function getDate(time: Dayjs | Date) {
  * @param time the time that will be the new "now"
  * @param fn function to execute, on which the time will be frozen as `time`
  */
-export function freezeTime<T>(time: Dayjs | Date, fn: () => T): T {
-  timekeeper.freeze(getDate(time));
-  const result = fn();
-  timekeeper.reset();
-  return result;
+export function freezeTime<T>(time: Date, fn: () => T): T {
+  timekeeper.freeze(time);
+
+  try {
+    const result = fn();
+    timekeeper.reset();
+    return result;
+  } catch (e) {
+    timekeeper.reset();
+    throw e;
+  }
 }
 
 /**
@@ -47,9 +45,15 @@ export function freezeTime<T>(time: Dayjs | Date, fn: () => T): T {
  * @param fn async function to execute, on which the time will be frozen as `time`
  * @see freezeTime
  */
-export async function freezeTimeAwait<T>(time: Dayjs | Date, fn: () => Promise<T>): Promise<T> {
-  timekeeper.freeze(getDate(time));
-  const result = await fn();
-  timekeeper.reset();
-  return result;
+export async function freezeTimeAwait<T>(time: Date, fn: () => Promise<T>): Promise<T> {
+  timekeeper.freeze(time);
+
+  try {
+    const result = await fn();
+    timekeeper.reset();
+    return result;
+  } catch (e) {
+    timekeeper.reset();
+    throw e;
+  }
 }

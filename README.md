@@ -9,7 +9,7 @@
 
 [Github repo here](https://github.com/plandek-utils/ts-time-utils)
 
-small utils for managing Time, supported by `Dayjs`. It is intended to be used in tests.
+small utils for managing Time. It is intended to be used in tests.
 
 ## Installation
 
@@ -17,7 +17,11 @@ small utils for managing Time, supported by `Dayjs`. It is intended to be used i
 
 ## Dependencies
 
-it requires [`timekeeper`](https://www.npmjs.com/package/timekeeper) and [`Dayjs`](https://www.npmjs.com/package/dayjs)
+it requires [`timekeeper`](https://www.npmjs.com/package/timekeeper)
+
+### V2 Drops dayjs support
+
+In v1.x dayjs objects were supported. This ended up being problematic because of issues with dayjs versions. It also added a dependency that is not strictly needed. That's why from v2.x on dayjs is no longer supported and it is removed as a dependency.
 
 ## Usage
 
