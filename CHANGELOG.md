@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/plandek-utils/ts-time-utils/compare/v2.0.0...v2.0.1) (2020-05-12)
+
+
+### Bug Fixes
+
+* target ES2017 instead of esnext for module, and ES2015 for main ([c6ccff2](https://github.com/plandek-utils/ts-time-utils/commit/c6ccff24aebf2dc5a3747f9ddbe12819572f2de7))
+* **deps:** [security] bump acorn from 6.3.0 to 6.4.1 ([#66](https://github.com/plandek-utils/ts-time-utils/issues/66)) ([f5f8ec0](https://github.com/plandek-utils/ts-time-utils/commit/f5f8ec0f08dcab17189c9333067e70c0c623ea41))
+
 ## [2.0.0](https://github.com/plandek-utils/ts-time-utils/compare/v1.1.1...v2.0.0) (2020-04-15)
 
 
