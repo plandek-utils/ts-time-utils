@@ -40,7 +40,7 @@
     "commitizen": "^4.3.1",
     "husky": "^9.1.6",
     "inquirer": "^9.3.7",
-    "light-release": "^1.0.0",
+    "light-release": "^2.4.2",
     "timekeeper": "^2.3.1",
     "ts-enum-util": "^4.1.0",
     "tsup": "^8.3.5",
