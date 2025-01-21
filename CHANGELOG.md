@@ -1,3 +1,8 @@
+## [2.1.1] - January 21, 2025
+
+### Changes
+- Release notes generated for version [2.1.1](.release-notes/2.1.1/release.md)
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
