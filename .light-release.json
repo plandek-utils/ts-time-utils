@@ -1,0 +1,9 @@
+{
+  "commitMessage": "chore(release): v${version}",
+  "tagMessage": "v${version}",
+  "tagPrefix": "v",
+  "versionFile": "package.json",
+  "push": true,
+  "publish": true,
+  "publishScript": "npm publish --access public"
+}

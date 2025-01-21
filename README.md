@@ -1,7 +1,7 @@
 # `@plandek-utils/time-utils`
 
 [![npm version](https://badge.fury.io/js/%40plandek-utils%2Ftime-utils.svg)](https://badge.fury.io/js/%40plandek-utils%2Ftime-utils)
-[![Build Status](https://travis-ci.org/plandek-utils/ts-time-utils.svg?branch=master)](https://travis-ci.org/plandek-utils/ts-time-utils)
+[![Build Status](https://github.com/plandek-utils/ts-time-utils/actions/workflows/ci-master.yml/badge.svg)](https://github.com/plandek-utils/ts-time-utils/actions/workflows/ci-master.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6e14835096c932a7887c/maintainability)](https://codeclimate.com/github/plandek-utils/ts-time-utils/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6e14835096c932a7887c/test_coverage)](https://codeclimate.com/github/plandek-utils/ts-time-utils/test_coverage)
 
@@ -9,23 +9,25 @@
 
 [Github repo here](https://github.com/plandek-utils/ts-time-utils)
 
-small utils for managing Time. It is intended to be used in tests.
+Small utils for managing Time in tests, using timekeeper for time manipulation.
 
 ## Installation
 
-`yarn add @plandek-utils/time-utils` or `npm install @plandek-utils/time-utils`.
+```bash
+npm install @plandek-utils/time-utils
+```
 
 ## Dependencies
 
-it requires [`timekeeper`](https://www.npmjs.com/package/timekeeper)
+This package has a peer dependency on [`timekeeper`](https://www.npmjs.com/package/timekeeper), which you'll need to install:
 
-### V2 Drops dayjs support
-
-In v1.x dayjs objects were supported. This ended up being problematic because of issues with dayjs versions. It also added a dependency that is not strictly needed. That's why from v2.x on dayjs is no longer supported and it is removed as a dependency.
+```bash
+npm install timekeeper
+```
 
 ## Usage
 
-we get 2 functions:
+The package provides 2 functions:
 
 - `freezeTime(time, fn)`: freezes time to the given one, executes the given function, and resets the time before returning the result of that execution.
 - `freezeTimeAwait(time, asyncFn)`: same as `freezeTime()` but expects an async function, and it waits for its return before resetting the time
@@ -47,10 +49,21 @@ console.log(res) // => logs 'blah' (freezeTime() returns the result of the passe
 renderTime() // => logs "2019-03-21T12:21:13.010Z" (time is unfrozen, let's say that a 10ms have passed)
 ```
 
-## Development, Commits, versioning and publishing
+## Development
 
-<details><summary>See documentation for development</summary>
-<p>
+### Setup
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+
+### Development Workflow
+
+1. Make your changes
+2. Run tests: `npm test`
+3. Run linter: `npm run check`
+4. Commit using conventional commits: `npm run commit`
+
+### Development, Commits, versioning and publishing
 
 See [The Typescript-Starter docs](https://github.com/bitjson/typescript-starter#bump-version-update-changelog-commit--tag-release).
 
@@ -59,78 +72,22 @@ See [The Typescript-Starter docs](https://github.com/bitjson/typescript-starter#
 For commits, you should use [`commitizen`](https://github.com/commitizen/cz-cli)
 
 ```sh
-yarn global add commitizen
-
-#commit your changes:
-git cz
+npm run commit
 ```
 
-As typescript-starter docs state:
-
-This project is tooled for [conventional changelog](https://github.com/conventional-changelog/conventional-changelog) to make managing releases easier. See the [standard-version](https://github.com/conventional-changelog/standard-version) documentation for more information on the workflow, or [`CHANGELOG.md`](CHANGELOG.md) for an example.
+This project uses [conventional changelog](https://github.com/conventional-changelog/conventional-changelog) to manage releases. See the [standard-version](https://github.com/conventional-changelog/standard-version) documentation for more information on the workflow.
 
 ```sh
 # bump package.json version, update CHANGELOG.md, git tag the release
-yarn run version
+npm run version
 ```
 
-You may find a tool like [**`wip`**](https://github.com/bitjson/wip) helpful for managing work in progress before you're ready to create a meaningful commit.
+### Creating a Release
 
-### Creating the first version
-
-Once you are ready to create the first version, run the following (note that `reset` is destructive and will remove all files not in the git repo from the directory).
-
-```sh
-# Reset the repo to the latest commit and build everything
-yarn run reset && yarn run test && yarn run doc:html
-
-# Then version it with standard-version options. e.g.:
-# don't bump package.json version
-yarn run version -- --first-release
-
-# Other popular options include:
-
-# PGP sign it:
-# $ yarn run version -- --sign
-
-# alpha release:
-# $ yarn run version -- --prerelease alpha
-```
-
-And after that, remember to [publish the docs](#publish-the-docs).
-
-And finally push the new tags to github and publish the package to npm.
-
-```sh
-# Push to git
-git push --follow-tags origin master
-
-# Publish to NPM (allowing public access, required if the package name is namespaced like `@somewhere/some-lib`)
-yarn publish --access public
-```
-
-### Publish the Docs
-
-```sh
-yarn run doc:html && yarn run doc:publish
-```
-
-This will generate the docs and publish them in github pages.
-
-### Generate a version
-
-There is a single yarn command for preparing a new release. See [One-step publish preparation script in TypeScript-Starter](https://github.com/bitjson/typescript-starter#one-step-publish-preparation-script)
-
-```sh
-# Prepare a standard release
-yarn prepare-release
-
-# Push to git
-git push --follow-tags origin master
-
-# Publish to NPM (allowing public access, required if the package name is namespaced like `@somewhere/some-lib`)
-yarn publish --access public
-```
-
-</p>
-</details>
+1. Run `npm run prepare-release` which will:
+   - Reset the repo to a clean state
+   - Run checks and tests
+   - Create a new version using standard-version
+   - Build the package
+2. Push to git: `git push --follow-tags origin master`
+3. The CI will automatically publish to npm when pushed to master
