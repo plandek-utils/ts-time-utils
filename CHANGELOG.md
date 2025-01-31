@@ -7,6 +7,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/plandek-utils/ts-time-utils/compare/v2.1.1...v2.2.0) (2025-01-31)
+
+
+### Features
+
+* adapt to new structure and include dist ([52f1bd4](https://github.com/plandek-utils/ts-time-utils/commit/52f1bd408e26c8952f0ea66915698d1ab5e2cae1))
+
 ## [2.1.0](https://github.com/plandek-utils/time-utils/compare/v2.0.4...v2.1.0) (2024-11-06)
 
 
